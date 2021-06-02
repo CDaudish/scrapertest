@@ -1,0 +1,22 @@
+<html>
+    <head>
+        <title>Wikipedia Scraper and Password Generator</title>
+    </head>
+    <body>
+        <form method="POST">
+            <h1>Please enter your wikipedia article here</h1>
+            <input name="text">
+            <input type="submit" name="submit_button" value="Scrape">
+        </form>
+
+        <table border=1>
+            {% for res_item in res_list %}
+            <tr>
+                <td>{{ res_item }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+
+        
+    </body>
+</html>
