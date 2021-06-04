@@ -2,8 +2,11 @@ from flask import Flask, request, render_template
 import wikipedia
 import requests
 import random
+from flask_cors import CORS, cross_origin
 
 app = Flask(__name__)
+cors = CORS(app)
+app.config['CORS_HEADERs'] = 'Content-Type'
 
 def scrape_single_keyword(wiki_page):
     summary = wikipedia.summary(wiki_page)
@@ -67,6 +70,7 @@ def search_result():
         return render_template("results_encrypt.html", x = x)
 
 @app.route("/keyword", methods=['POST'])
+@cross_origin()
 def postKeyword():
     request_data = request.json
 
