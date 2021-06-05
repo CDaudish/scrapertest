@@ -68,9 +68,9 @@ def search_result():
         text = request.form['text']
 
         res_list = scrape_multiple_keyword(text)
-        picture = get_picture(text)
+        #picture = get_picture(text)
 
-        return render_template("results.html", res_list = res_list, keywordimage = picture)
+        return render_template("results.html", res_list = res_list)
     elif request.form['submit_button'] == 'Encrypt':
         url = 'https://quiet-wave-78817.herokuapp.com/encrypt'
         password = "yourpassword"
